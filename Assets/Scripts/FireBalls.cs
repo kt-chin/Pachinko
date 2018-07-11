@@ -8,8 +8,9 @@ public class FireBalls : MonoBehaviour {
     private float normBallForce;
     private float ballTimer = 1.0f;
     private bool fireBalls = false;
-
-    private objectRotator objectrotator;
+    static public bool ballShot = false;
+    private int testCount;
+   // private objectRotator objectrotator;
 	// Use this for initialization
 	void Start () {
         
@@ -22,11 +23,12 @@ public class FireBalls : MonoBehaviour {
         GameObject objectrotator = GameObject.Find("BallShooter");
         ballForce = objectrotator.GetComponent<objectRotator>().rotatedAmount.z;
         //objectrotator.gameObject.transform.rotation.z;;
+        ballShot = false;
         if (Input.GetKeyUp(KeyCode.Space) && fireBalls == false)
         {
             fireBalls = true;
         }
-        else if (Input.GetKeyUp(KeyCode.Space) && fireBalls == true)
+        else if (Input.GetKeyUp(KeyCode.Space) && fireBalls == true || CreditsAndScore.Credits == 0)
         {
             fireBalls = false;        
         }
@@ -39,9 +41,10 @@ public class FireBalls : MonoBehaviour {
 
         if (ballTimer < 0)
         {
+            ballShot = true;
             Rigidbody BallClone;
             BallClone = Instantiate(balls, transform.position, transform.rotation);
-            BallClone.AddForce(0, normBallForce* 150, 0);
+            BallClone.AddForce(0, normBallForce* 250, 0);
             ballTimer = 2.0f;
         }
 	}

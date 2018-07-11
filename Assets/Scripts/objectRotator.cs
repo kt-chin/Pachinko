@@ -20,7 +20,7 @@ public class objectRotator : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(rotatedAmount.z);
+        //Debug.Log(rotatedAmount.z);
         rotatedAmount = transform.eulerAngles;
 
         if (Input.GetMouseButton(0))
