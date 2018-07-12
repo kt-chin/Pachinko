@@ -44,7 +44,7 @@ public class FireBalls : MonoBehaviour {
             ballShot = true;
             Rigidbody BallClone;
             BallClone = Instantiate(balls, transform.position, transform.rotation);
-            BallClone.AddForce(0, normBallForce* 250, 0);
+            BallClone.AddForce(0, (normBallForce* 500) + Random.Range(0.0f,30.0f), 0);
             ballTimer = 2.0f;
         }
 	}

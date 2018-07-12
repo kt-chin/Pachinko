@@ -18,7 +18,5 @@ public class CreditsAndScore : MonoBehaviour {
         {
             Credits -= 1;
         }
-  //      kzTrigger.get
-		//if ()
 	}
 }

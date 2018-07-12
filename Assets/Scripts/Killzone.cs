@@ -15,6 +15,11 @@ public class Killzone : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "Slot")
+        {
+            CreditsAndScore.Credits += 5;
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
