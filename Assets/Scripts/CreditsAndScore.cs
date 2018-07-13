@@ -13,7 +13,7 @@ public class CreditsAndScore : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(Credits);
+      //  Debug.Log(Credits);
         if (FireBalls.ballShot == true)
         {
             Credits -= 1;

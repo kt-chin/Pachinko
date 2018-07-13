@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SlotBonus : MonoBehaviour {
-    private Vector3 pointA = new Vector3(-2.3f, 0.3f, -0.2f);
-    private Vector3 pointB = new Vector3(4.3f, 0.3f , -0.2f);
+    private Vector3 pointA = new Vector3(-5.4f, 11.95f, 0.09f);
+    private Vector3 pointB = new Vector3(5.75f, 11.95f, 0.09f);
     private float speed = 1.0f;
     // Use this for initialization
 

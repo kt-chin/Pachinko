@@ -10,6 +10,7 @@ public class FireBalls : MonoBehaviour {
     private bool fireBalls = false;
     static public bool ballShot = false;
     private int testCount;
+    static public float speed;
    // private objectRotator objectrotator;
 	// Use this for initialization
 	void Start () {
@@ -41,10 +42,12 @@ public class FireBalls : MonoBehaviour {
 
         if (ballTimer < 0)
         {
+            float randomFactor = Random.Range(0.0f, 30.0f);
             ballShot = true;
+            speed = ((normBallForce * 2000) + randomFactor);
             Rigidbody BallClone;
             BallClone = Instantiate(balls, transform.position, transform.rotation);
-            BallClone.AddForce(0, (normBallForce* 500) + Random.Range(0.0f,30.0f), 0);
+            BallClone.AddForce(-speed, 0, 0);
             ballTimer = 2.0f;
         }
 	}

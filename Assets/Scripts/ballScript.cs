@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Killzone : MonoBehaviour {
-
+public class ballScript : MonoBehaviour {
+    public static bool speedZoneActivate = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -20,10 +20,14 @@ public class Killzone : MonoBehaviour {
             CreditsAndScore.Credits += 5;
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "sz1")
+        {
+            speedZoneActivate = true;
+        }
     }
 
     // Update is called once per frame
     void Update () {
-		
+        speedZoneActivate = false;
 	}
 }
