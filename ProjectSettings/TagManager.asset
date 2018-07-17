@@ -10,6 +10,7 @@ TagManager:
   - Jackpot
   - speedZone
   - speedZoneCheck
+  - deadZone
   layers:
   - Default
   - TransparentFX

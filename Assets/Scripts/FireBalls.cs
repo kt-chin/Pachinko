@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class FireBalls : MonoBehaviour {
-    public Rigidbody balls;
+    public GameObject ballsObject;
+
     private float ballForce;
     private float normBallForce;
     private float ballTimer = 1.0f;
@@ -15,16 +17,18 @@ public class FireBalls : MonoBehaviour {
     static public float speed;
     private GameObject objectrotator;
     private Vector3 ballVelocity;
-    private Rigidbody BallClone;
+   // private Rigidbody BallClone;
+    public AudioSource audio;
     // private objectRotator objectrotator;
     // Use this for initialization
     void Start () {
        objectrotator = GameObject.Find("BallShooter");
+       audio = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        ballShot = false;
+        
 
         if (Input.GetKeyUp(KeyCode.Space) && fireBalls == false)
         {
@@ -40,7 +44,7 @@ public class FireBalls : MonoBehaviour {
     void FixedUpdate() {  
         ballForce = objectrotator.GetComponent<objectRotator>().rotatedAmount.z;
 
-        
+        ballShot = false;
         normBallForce = ballForce/ 90;
         if (fireBalls)
         {
@@ -52,10 +56,18 @@ public class FireBalls : MonoBehaviour {
             float randomFactor = Random.Range(0.0f, 10.0f);
             ballShot = true;
             speed = ((normBallForce * 3000.0f) + randomFactor);
-
-            BallClone = Instantiate(balls, transform.position, transform.rotation);
-            BallClone.GetComponent<Rigidbody>().AddForce(-speed, 0, 0);
+            //BallClone = Instantiate(balls, transform.position, transform.rotation);
+            ballsObject = ballPooler.sharedInstance.GetPooledBall();
+            if (ballsObject != null)
+            {
+                ballsObject.transform.position = transform.position;
+                ballsObject.transform.rotation = transform.rotation;
+                ballsObject.SetActive(true);
+            }
+            //delete above for pool if not working!   
+            ballsObject.GetComponent<Rigidbody>().AddForce(-speed, 0, 0);
             ballTimer = 2.0f;
+            audio.Play();
             
         }
       //  Debug.Log(BallClone.velocity);
