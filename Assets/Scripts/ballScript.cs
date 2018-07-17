@@ -66,12 +66,6 @@ public class ballScript : MonoBehaviour {
             refund = true;
         }
     }
-    private void Update()
-    {
-        Jackpot = false;
-        gutterBall = false;
-        bonusSlot = false;
-    }
 
     // Update is called once per frame
     void FixedUpdate () {

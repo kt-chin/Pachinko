@@ -25,14 +25,17 @@ public class CreditsAndScore : MonoBehaviour {
         if (ballScript.gutterBall)
         {
             fail.Play();
+            ballScript.gutterBall = false;
         }
         if (ballScript.Jackpot)
         {
             jackpotBonus.Play();
+            ballScript.Jackpot = false;
         }
         if (ballScript.bonusSlot)
         {
             slotBonus.Play();
+            ballScript.bonusSlot = false;
         }
         credText.text = "Credits: " + Credits;
 	}
