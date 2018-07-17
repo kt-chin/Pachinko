@@ -7,7 +7,9 @@ TagManager:
   - Ball
   - Killzone
   - Slot
-  - sz1
+  - Jackpot
+  - speedZone
+  - speedZoneCheck
   layers:
   - Default
   - TransparentFX
