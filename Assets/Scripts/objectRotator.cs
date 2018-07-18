@@ -17,14 +17,14 @@ public class objectRotator : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         //Debug.Log(rotatedAmount.z);
         rotatedAmount = transform.eulerAngles;
 
-        if (Input.GetMouseButton(0))
-        {
+        //if (Input.GetMouseButton(0))
+        //{
             if (Mouse.x <= transform.position.x && rotatedAmount.z >= minRot)
             {
                 transform.Rotate(180, 0, Input.GetAxis("Mouse X") * Time.deltaTime * -sensitivity);
@@ -39,7 +39,7 @@ public class objectRotator : MonoBehaviour
             }
           
                 transform.eulerAngles = new Vector3(0,180,rotatedAmount.z);
-        }
+       // }
 
 
     }

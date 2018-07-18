@@ -7,42 +7,59 @@ public class ballScript : MonoBehaviour {
     public static Vector3 velocity;
     private float autoDestructTimer = 3.0f;
     private bool refund = true;
-    private bool inPlay = false;
+    public bool inPlay = false;
     private float timer;
     public static bool gutterBall = false;
     public static bool bonusSlot = false;
     public static bool Jackpot = false;
     // Use this for initialization
     void Start () {
-
 	}
 
     void OnCollisionEnter(Collision collision)
     {
+        
         if (collision.gameObject.tag == "Killzone")
         {
             gutterBall = true;
+            gameObject.transform.position = Vector3.zero;
             gameObject.SetActive(false);
         }
         if (collision.gameObject.tag == "Slot")
         {
             CreditsAndScore.Credits += 5;
             bonusSlot = true;
+            gameObject.transform.position = Vector3.zero;
             gameObject.SetActive(false);
         }
         if (collision.gameObject.tag == "Jackpot")
         {
             CreditsAndScore.Credits += 100;
             Jackpot = true;
+            gameObject.transform.position = Vector3.zero;
+            gameObject.SetActive(false);
+        }
+        if (collision.gameObject.tag == "refundZone")
+        {
+            CreditsAndScore.Credits += 1;
+            gameObject.transform.position = Vector3.zero;
             gameObject.SetActive(false);
         }
         if (collision.gameObject.tag == "Ball" && inPlay == false)
         {
+            refund = false;
             CreditsAndScore.Credits += 1;
+            gameObject.transform.position = Vector3.zero;
+            //collision.gameObject.transform.position = Vector3.zero;
+            //collision.gameObject.SetActive(false);
             gameObject.SetActive(false);
-            collision.gameObject.SetActive(false);
         }
-        
+        if (inPlay == true && !gameObject.activeSelf)
+        {
+            inPlay = false;
+            refund = true;
+        }
+
     }
         
     
@@ -76,10 +93,12 @@ public class ballScript : MonoBehaviour {
             {
                 CreditsAndScore.Credits += 1;
                 gameObject.SetActive(false);
+                gameObject.transform.position = Vector3.zero;
+                refund = false;
             }
             if (refund == false)
             {
-                autoDestructTimer = 2.8f;
+                autoDestructTimer = 3.0f;
             }
            // Debug.Log(autoDestructTimer);
         }

@@ -11,6 +11,7 @@ TagManager:
   - speedZone
   - speedZoneCheck
   - deadZone
+  - refundZone
   layers:
   - Default
   - TransparentFX

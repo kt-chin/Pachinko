@@ -11,9 +11,6 @@ public class FireBalls : MonoBehaviour {
     private float ballTimer = 1.0f;
     private bool fireBalls = false;
     static public bool ballShot = false;
-    static public float maxSpeed;
-    public static float currentForce;
-    private int testCount;
     static public float speed;
     private GameObject objectrotator;
     private Vector3 ballVelocity;
@@ -55,9 +52,10 @@ public class FireBalls : MonoBehaviour {
         {
             float randomFactor = Random.Range(0.0f, 10.0f);
             ballShot = true;
-            speed = ((normBallForce * 3000.0f) + randomFactor);
+            speed = ((normBallForce * 2700.0f) + randomFactor);
             //BallClone = Instantiate(balls, transform.position, transform.rotation);
             ballsObject = ballPooler.sharedInstance.GetPooledBall();
+            
             if (ballsObject != null)
             {
                 ballsObject.transform.position = transform.position;

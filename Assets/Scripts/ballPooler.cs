@@ -5,6 +5,7 @@ using UnityEngine;
 public class ballPooler : MonoBehaviour {
     public static ballPooler sharedInstance;
     public List<GameObject> pooledBalls;
+    public List<GameObject> visualPooledBalls;
     public GameObject ballObjectPool;
     public int poolAmount;
 	// Use this for initialization
