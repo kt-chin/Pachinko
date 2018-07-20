@@ -425,6 +425,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 59905866}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &66122311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 3b4a7bdf94713d242afc2518303d5dc2,
+    type: 3}
+  m_PrefabInternal: {fileID: 1910523666}
+--- !u!23 &66122312 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: 3b4a7bdf94713d242afc2518303d5dc2,
+    type: 3}
+  m_PrefabInternal: {fileID: 1910523666}
 --- !u!1 &134010090
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +694,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 3b4a7bdf94713d242afc2518303d5dc2, type: 3}
       propertyPath: m_Name
-      value: holeVisual
+      value: dzVisual
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 3b4a7bdf94713d242afc2518303d5dc2, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -838,7 +848,7 @@ GameObject:
   - component: {fileID: 287563088}
   m_Layer: 0
   m_Name: slotR
-  m_TagString: Slot
+  m_TagString: Slot2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1559,7 +1569,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 3b4a7bdf94713d242afc2518303d5dc2, type: 3}
       propertyPath: m_Name
-      value: holeVisual
+      value: b1Visual
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 3b4a7bdf94713d242afc2518303d5dc2, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2280,6 +2290,16 @@ Transform:
   m_Father: {fileID: 624683458}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1211041216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 3b4a7bdf94713d242afc2518303d5dc2,
+    type: 3}
+  m_PrefabInternal: {fileID: 593653500}
+--- !u!23 &1211041217 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: 3b4a7bdf94713d242afc2518303d5dc2,
+    type: 3}
+  m_PrefabInternal: {fileID: 593653500}
 --- !u!1 &1229570597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2437,7 +2457,7 @@ GameObject:
   - component: {fileID: 1250531444}
   m_Layer: 0
   m_Name: slotL
-  m_TagString: Slot
+  m_TagString: Slot1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2748,7 +2768,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 3b4a7bdf94713d242afc2518303d5dc2, type: 3}
       propertyPath: m_Name
-      value: holeVisual
+      value: b2Visual
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 3b4a7bdf94713d242afc2518303d5dc2, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3490,7 +3510,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790a5233bb59a0840bf9592c4e8c52ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectArray: []
+  objectArray:
+  - {fileID: 1211041216}
+  - {fileID: 1730840225}
+  - {fileID: 66122311}
+  - {fileID: 1953677412}
+  gameobjectRender:
+  - {fileID: 1211041217}
+  - {fileID: 1730840226}
+  - {fileID: 66122312}
+  - {fileID: 1953677413}
 --- !u!1 &1654713497 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 827343a710bfed74197d1b0e4a20b6a6,
@@ -3699,6 +3728,16 @@ Transform:
   m_Father: {fileID: 1090102398}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1730840225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 3b4a7bdf94713d242afc2518303d5dc2,
+    type: 3}
+  m_PrefabInternal: {fileID: 1508649277}
+--- !u!23 &1730840226 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: 3b4a7bdf94713d242afc2518303d5dc2,
+    type: 3}
+  m_PrefabInternal: {fileID: 1508649277}
 --- !u!1001 &1752826704
 Prefab:
   m_ObjectHideFlags: 0
@@ -4004,7 +4043,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 3b4a7bdf94713d242afc2518303d5dc2, type: 3}
       propertyPath: m_Name
-      value: holeVisual
+      value: jpVisual
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 3b4a7bdf94713d242afc2518303d5dc2, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4026,6 +4065,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 3b4a7bdf94713d242afc2518303d5dc2,
     type: 3}
   m_PrefabInternal: {fileID: 1910523666}
+--- !u!1 &1953677412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 3b4a7bdf94713d242afc2518303d5dc2,
+    type: 3}
+  m_PrefabInternal: {fileID: 249001386}
+--- !u!23 &1953677413 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: 3b4a7bdf94713d242afc2518303d5dc2,
+    type: 3}
+  m_PrefabInternal: {fileID: 249001386}
 --- !u!1 &2010863960
 GameObject:
   m_ObjectHideFlags: 0

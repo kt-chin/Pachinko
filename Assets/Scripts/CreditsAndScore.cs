@@ -32,10 +32,15 @@ public class CreditsAndScore : MonoBehaviour {
             jackpotBonus.Play();
             ballScript.Jackpot = false;
         }
-        if (ballScript.bonusSlot)
+        if (ballScript.bonusSlot1)
         {
             slotBonus.Play();
-            ballScript.bonusSlot = false;
+            ballScript.bonusSlot1 = false;
+        }
+        if (ballScript.bonusSlot2)
+        {
+            slotBonus.Play();
+            ballScript.bonusSlot2 = false;
         }
         credText.text = "Credits: " + Credits;
 	}

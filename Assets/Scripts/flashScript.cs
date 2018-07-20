@@ -7,38 +7,168 @@ public class flashScript : MonoBehaviour
     private IEnumerator coroutine;
     private float blinkTimer = 2.0f;
     public GameObject[] objectArray;
-    private bool entryCollision = false;
+    //public ballScript ballScriptRef;
+    //private Rigidbody ballRef;
+    //private Rigidbody holeRigidbody;
+    private bool entryCollisionBonus1;
+    private bool entryCollisionBonus2;
+    private bool entryCollisionJackpot;
+    private bool entryCollisionDeadzone;
+    private bool coroutineRunning = false;
+    public Renderer[] gameobjectRender;
+    public static GameObject ballObject;
+    private int i;
     // Use this for initialization
     void Start()
     {
-
-
-        //Renderer r = gameObject.GetComponent<Renderer>();
-        //Color materialColour = r.material.color;
-        //r.material.color = new Color(materialColour.r, materialColour.g, materialColour.b,)
-        // - After 0 seconds, prints "Starting 0.0"
-        // - After 0 seconds, prints "Before WaitAndPrint Finishes 0.0"
-        // - After 2 seconds, prints "WaitAndPrint 2.0"
-       // print("Starting " + Time.time);
-
-        // Start function WaitAndPrint as a coroutine.
-
-        coroutine = blink(2.0f);
-        StartCoroutine(coroutine);
-
+        coroutine = blink(1.5f);
     }
 
-    private IEnumerator blink(float waitTime)
+
+    private void Update()
     {
-        if (entryCollision == true)
+        Debug.Log(blinkTimer);
+        Debug.Log(coroutineRunning);
+        entryCollisionBonus1 = ballScript.bonusSlot1;
+        entryCollisionBonus2 = ballScript.bonusSlot2;
+        entryCollisionJackpot = ballScript.Jackpot;
+        entryCollisionDeadzone = ballScript.gutterBall;
+
+        ////////////////////////////////////////////
+        //Debug controls
+        if (Input.GetKey(KeyCode.Q))
         {
-            while (Time.deltaTime < waitTime)
+            entryCollisionBonus1 = true;
+            coroutineRunning = false;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            entryCollisionBonus2 = true;
+            coroutineRunning = false;
+        }
+        if (Input.GetKey(KeyCode.E))
+        {
+            entryCollisionJackpot = true;
+            coroutineRunning = false;
+        }
+        if (Input.GetKey(KeyCode.R))
+        {
+            entryCollisionDeadzone = true;
+            coroutineRunning = false;
+        }
+        /////////////////////////////////////////////
+
+        if(coroutineRunning)
+        {
+            blinkTimer -= Time.deltaTime;
+            if (blinkTimer <= 0)
             {
-                gameObject.GetComponent<Renderer>().enabled = false;
-                yield return new WaitForSeconds(0.2f);
-                gameObject.GetComponent<Renderer>().enabled = true;
-                yield return new WaitForSeconds(0.2f);
+                StopCoroutine(coroutine);
+                coroutineRunning = false;
+                blinkTimer = 2.0f;
+            }
+        }
+
+        if (!coroutineRunning)
+        {
+            gameobjectRender[i].enabled = true;
+            if (entryCollisionBonus1/* && coroutineRunning == false*/)
+            {
+                i = 0;
+                StartCoroutine(coroutine);
+                entryCollisionBonus1 = false;
+                
+            }
+            if (entryCollisionBonus2 /*&& coroutineRunning == false*/)
+            {
+                i = 1;
+                StartCoroutine(coroutine);
+                entryCollisionBonus2 = false;
+                //coroutineRunning = true;
+            }
+            if (entryCollisionJackpot /*&& coroutineRunning == false*/)
+            {
+                i = 2;
+                StartCoroutine(coroutine);
+                entryCollisionJackpot = false;
+                //coroutineRunning = true;
+            }
+            if (entryCollisionDeadzone /*&& coroutineRunning == false*/)
+            {
+                i = 3;
+                StartCoroutine(coroutine);
+                entryCollisionDeadzone = false;
+                //coroutineRunning = true;
+            }
+        }
+       
+
+        //if (blinkTimer <= 0)
+        //{
+        //    coroutineRunning = false;
+        //    if (entryCollisionBonus1)
+        //    {
+        //        entryCollisionBonus1 = false;
+        //    }
+        //    if (entryCollisionBonus2)
+        //    {
+        //        entryCollisionBonus2 = false;
+        //    }
+        //    if (entryCollisionJackpot)
+        //    {
+        //        entryCollisionJackpot = false;
+        //    }
+        //    if (entryCollisionJackpot)
+        //    {
+        //        entryCollisionJackpot = false;
+        //    }
+        //    StopCoroutine(coroutine);
+        //    blinkTimer = 2.0f;
+        //    gameobjectRender[i].enabled = true;
+        //    coroutineRunning = false;
+        //}
+
+
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    entryCollision = true;
+        //}
+
+        //if (entryCollision == true)
+        //{
+        //    coroutine = blink(0.1f);
+        //    StartCoroutine(coroutine);
+        //    entryCollision = false;
+        //}
+        //if (blinkTimer <= 0)
+        //{
+        //    entryCollision = false;
+        //    StopCoroutine(coroutine);
+        //    alphaRender.enabled = true;
+        //    blinkTimer = 0.1f;
+        //}
+    }
+    private IEnumerator blink(float frequency)
+    {   
+            for (i = 0; i < objectArray.Length; i++)
+            {
+                
+                gameobjectRender[i] = objectArray[i].GetComponent<Renderer>();
+                while (Time.deltaTime < frequency)
+                {
+                    coroutineRunning = true;
+                  //gameObject.GetComponent<Renderer>()
+                    gameobjectRender[i].enabled = false;
+                    yield return new WaitForSeconds(0.1f);
+                    gameobjectRender[i].enabled = true;
+                    yield return new WaitForSeconds(0.1f);
+                }
+               
             }
         }
     }
-}
+
+
+
+
+

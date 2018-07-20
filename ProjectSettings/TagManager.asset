@@ -6,12 +6,13 @@ TagManager:
   tags:
   - Ball
   - Killzone
-  - Slot
   - Jackpot
   - speedZone
   - speedZoneCheck
   - deadZone
   - refundZone
+  - Slot2
+  - Slot1
   layers:
   - Default
   - TransparentFX

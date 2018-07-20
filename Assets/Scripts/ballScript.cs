@@ -10,7 +10,8 @@ public class ballScript : MonoBehaviour {
     public bool inPlay = false;
     private float timer;
     public static bool gutterBall = false;
-    public static bool bonusSlot = false;
+    public static bool bonusSlot1 = false;
+    public static bool bonusSlot2 = false;
     public static bool Jackpot = false;
     // Use this for initialization
     void Start () {
@@ -25,10 +26,17 @@ public class ballScript : MonoBehaviour {
             gameObject.transform.position = Vector3.zero;
             gameObject.SetActive(false);
         }
-        if (collision.gameObject.tag == "Slot")
+        if (collision.gameObject.tag == "Slot1")
         {
             CreditsAndScore.Credits += 5;
-            bonusSlot = true;
+            bonusSlot1 = true;
+            gameObject.transform.position = Vector3.zero;
+            gameObject.SetActive(false);
+        }
+        if (collision.gameObject.tag == "Slot2")
+        {
+            CreditsAndScore.Credits += 5;
+            bonusSlot2 = true;
             gameObject.transform.position = Vector3.zero;
             gameObject.SetActive(false);
         }
